@@ -12,7 +12,7 @@ SAVEHIST=10000
 bindkey -v
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/kris/.zshrc'
+zstyle :compinstall filename '~/.zshrc'
 
 autoload -Uz compinit
 compinit
@@ -51,3 +51,20 @@ if [[ -f /etc/os-release ]]; then
     alias pacman='pacman --color=auto'
   fi
 fi
+
+# Function to navigate to the root of the project
+cd_root() {
+  # Find the root of the project (assumes a git repo or `pnpm-workspace.yaml` exists)
+  local project_root=$(git rev-parse --show-toplevel 2>/dev/null || find . -name "pnpm-workspace.yaml" -exec dirname {} \; | head -n 1)
+  
+  if [[ -n "$project_root" ]]; then
+    cd "$project_root" || return
+    echo "Moved to project root: $project_root"
+  else
+    echo "Error: Could not find the project root. Ensure you're inside a Git repo or workspace."
+  fi
+}
+
+# Alias `cd root` to the function
+alias 'cdroot'='cd_root'
+
