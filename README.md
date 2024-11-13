@@ -1,5 +1,3 @@
-# README.md
-
 # My Zsh Configuration
 
 Welcome to my Zsh configuration repository! This repository contains my personal Zsh setup, complete with plugins, themes, and custom functions to enhance productivity and aesthetics. This setup is designed for **Arch Linux** but can be adapted for other systems as well.
