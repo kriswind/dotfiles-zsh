@@ -21,8 +21,7 @@ compinit
 #Autosuggestions
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-#Syntax Highlighting
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 
 # Power 10k
 source ~/powerlevel10k/powerlevel10k.zsh-theme
@@ -68,3 +67,5 @@ cd_root() {
 # Alias `cd root` to the function
 alias 'cdroot'='cd_root'
 
+#Syntax Highlighting
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
