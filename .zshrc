@@ -22,7 +22,6 @@ compinit
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 
-
 # Power 10k
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 
@@ -69,3 +68,30 @@ alias 'cdroot'='cd_root'
 
 #Syntax Highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# pnpm
+export PNPM_HOME="/home/kris/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+# bun completions
+[ -s "/home/kris/.bun/_bun" ] && source "/home/kris/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Relative directory
+DOTFILES_DIR=$(dirname "$(realpath "${(%):-%N}")")
+# Source .secrets file if it exists using the relative path
+SECRETS_FILE="$DOTFILES_DIR/.secrets"
+
+
+if [ -f "$SECRETS_FILE" ]; then
+    source "$SECRETS_FILE"
+else
+    echo "No secrets"
+fi
