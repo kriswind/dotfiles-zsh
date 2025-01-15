@@ -55,10 +55,11 @@ Oh My Zsh is not required, but it can provide additional tools and flexibility.
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
-### Step 4: Link `.zshrc`
-Create a symbolic link to your home directory:
+### Step 4: Link config files
+Create symbolic links in your home directory:
 ```bash
 ln -sf ~/.zsh/.zshrc ~/.zshrc
+ln -sf ~/.zsh/.p10k.zsh ~/.p10k.zsh
 ```
 
 ### Step 5: Source Configuration
