@@ -21,7 +21,6 @@ compinit
 #Autosuggestions
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-
 # Power 10k
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 
@@ -30,12 +29,12 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 
-# Source NVM
-source ~/.zsh-nvm/zsh-nvm.plugin.zsh
-
 export PATH="/usr/local/bin/:$PATH"
 
 # Colorful aliases for common commands
+alias cfgzsh='nvim ~/.zshrc'
+alias srczsh='source ~/.zshrc'
+alias l='ls -Flah --color=auto'
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
@@ -69,14 +68,6 @@ alias 'cdroot'='cd_root'
 #Syntax Highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# pnpm
-export PNPM_HOME="/home/kris/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
-
 # bun completions
 [ -s "/home/kris/.bun/_bun" ] && source "/home/kris/.bun/_bun"
 
@@ -92,6 +83,15 @@ SECRETS_FILE="$DOTFILES_DIR/.secrets"
 
 if [ -f "$SECRETS_FILE" ]; then
     source "$SECRETS_FILE"
-else
-    echo "No secrets"
 fi
+
+# To Disable the 'Spoink' sound
+unsetopt BEEP
+
+# Source Android SDK Path
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+# Source NVM
+source /usr/share/nvm/init-nvm.sh
