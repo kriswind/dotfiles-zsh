@@ -28,7 +28,14 @@ git clone https://github.com/kriswind/dotfiles-zsh.git ~/.zsh
 ### Step 2: Install Zsh and Make It Default (Arch Linux)
 ```bash
 sudo pacman -S zsh
+```
+And then set it as the current user's default shell
+```bash
 chsh -s $(which zsh)
+```
+Or if you're using WSL:
+```bash
+chsh -s /usr/bin/zsh
 ```
 
 ### Step 3: Install Required Plugins
