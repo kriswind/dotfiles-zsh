@@ -16,13 +16,14 @@ zstyle :compinstall filename '~/.zshrc'
 
 autoload -Uz compinit
 compinit
-# End of lines added by compinstall
 
 #Autosuggestions
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+[[ -r /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]] \
+  && source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Power 10k
-source ~/powerlevel10k/powerlevel10k.zsh-theme
+[[ -r ~/powerlevel10k/powerlevel10k.zsh-theme ]] \
+  && source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -94,4 +95,4 @@ export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 # Source NVM
-source /usr/share/nvm/init-nvm.sh
+[[ -r /usr/share/nvm/init-nvm.sh ]] && source /usr/share/nvm/init-nvm.sh
